@@ -251,7 +251,7 @@ export default function HabitsScreen() {
                   <Pressable
                     key={habit.id}
                     style={[styles.habitCard, isCompleted && styles.habitCardCompleted]}
-                    onPress={() => setSelectedHabit(habit)}
+                    onPress={() => router.push(`/habits/edit/${habit.id}`)}
                   >
                     <LinearGradient
                       colors={isCompleted ? ['#4CAF50', '#66BB6A'] : ['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.9)']}

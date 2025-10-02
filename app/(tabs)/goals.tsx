@@ -343,10 +343,7 @@ export default function GoalsScreen() {
                   <Pressable
                     key={goal.id}
                     style={[styles.goalCard, goal.is_completed && styles.goalCardCompleted]}
-                    onPress={() => {
-                      setSelectedGoal(goal);
-                      setUpdateValue(goal.current_value.toString());
-                    }}
+                    onPress={() => router.push(`/goals/edit/${goal.id}`)}
                   >
                     <LinearGradient
                       colors={goal.is_completed ? ['#FFD700', '#FFA500'] : ['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.9)']}
