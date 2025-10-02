@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { Sparkles, Heart, Target } from 'lucide-react-native';
+import { supabase } from '@/lib/supabase';
 
 export default function WelcomeScreen() {
   const { session, loading } = useAuth();
