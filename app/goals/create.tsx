@@ -169,7 +169,7 @@ export default function CreateGoalWizard() {
 
       <Pressable style={styles.primaryButton} onPress={nextStep}>
         <LinearGradient
-          colors={['#ff9a9e', '#fecfef']}
+          colors={['#667eea', '#764ba2']}
           style={styles.buttonGradient}
         >
           <Text style={styles.buttonText}>Start Dreaming</Text>
@@ -198,7 +198,7 @@ export default function CreateGoalWizard() {
             }}
           >
             <LinearGradient
-              colors={selectedCategory === category.id ? ['#ff9a9e', '#fecfef'] : ['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.05)']}
+              colors={selectedCategory === category.id ? ['#667eea', '#764ba2'] : ['rgba(255,255,255,0.9)', 'rgba(255,255,255,0.8)']}
               style={styles.categoryCardGradient}
             >
               <View style={styles.categoryIconContainer}>
@@ -234,10 +234,10 @@ export default function CreateGoalWizard() {
         }}
       >
         <LinearGradient
-          colors={['rgba(255,255,255,0.15)', 'rgba(255,255,255,0.1)']}
+          colors={['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.9)']}
           style={styles.customGoalGradient}
         >
-          <Sparkles size={24} color="#fff" />
+          <Sparkles size={24} color="#667eea" />
           <Text style={styles.customGoalTitle}>Create Custom Goal</Text>
           <Text style={styles.customGoalSubtitle}>Design your unique dream</Text>
         </LinearGradient>
@@ -253,7 +253,7 @@ export default function CreateGoalWizard() {
             onPress={() => selectTemplate(template)}
           >
             <LinearGradient
-              colors={['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.05)']}
+              colors={['rgba(255,255,255,0.9)', 'rgba(255,255,255,0.8)']}
               style={styles.templateGradient}
             >
               <Text style={styles.templateIcon}>{template.icon}</Text>
@@ -262,7 +262,7 @@ export default function CreateGoalWizard() {
                 <Text style={styles.templateDescription}>{template.description}</Text>
                 <Text style={styles.templateTarget}>Target: {template.target} {template.unit}</Text>
               </View>
-              <ChevronRight size={20} color="rgba(255,255,255,0.6)" />
+              <ChevronRight size={20} color="#667eea" />
             </LinearGradient>
           </Pressable>
         ))}
@@ -340,7 +340,7 @@ export default function CreateGoalWizard() {
           disabled={!goalTitle.trim() || !targetValue || !unit.trim()}
         >
           <LinearGradient
-            colors={['#ff9a9e', '#fecfef']}
+            colors={['#667eea', '#764ba2']}
             style={styles.buttonGradient}
           >
             <Text style={styles.buttonText}>Continue</Text>
@@ -442,7 +442,7 @@ export default function CreateGoalWizard() {
           disabled={loading}
         >
           <LinearGradient
-            colors={['#ff9a9e', '#fecfef']}
+            colors={['#667eea', '#764ba2']}
             style={styles.buttonGradient}
           >
             <Star size={20} color="#fff" />
@@ -654,14 +654,14 @@ const styles = StyleSheet.create({
   customGoalTitle: {
     fontSize: 18,
     fontFamily: 'Inter-Bold',
-    color: '#fff',
+    color: '#2D3436',
     marginTop: 12,
     marginBottom: 4,
   },
   customGoalSubtitle: {
     fontSize: 14,
     fontFamily: 'Inter-Regular',
-    color: 'rgba(255,255,255,0.8)',
+    color: '#636E72',
   },
   orText: {
     fontSize: 14,
@@ -694,19 +694,19 @@ const styles = StyleSheet.create({
   templateTitle: {
     fontSize: 16,
     fontFamily: 'Inter-Bold',
-    color: '#fff',
+    color: '#2D3436',
     marginBottom: 4,
   },
   templateDescription: {
     fontSize: 13,
     fontFamily: 'Inter-Regular',
-    color: 'rgba(255,255,255,0.8)',
+    color: '#636E72',
     marginBottom: 4,
   },
   templateTarget: {
     fontSize: 12,
     fontFamily: 'Inter-SemiBold',
-    color: 'rgba(255,255,255,0.6)',
+    color: '#A29BFE',
   },
   inputContainer: {
     marginBottom: 20,

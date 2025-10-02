@@ -344,13 +344,7 @@ export default function GoalsScreen() {
                     key={goal.id}
                     style={[styles.goalCard, goal.is_completed && styles.goalCardCompleted]}
                     onPress={() => router.push(`/goals/edit/${goal.id}`)}
-                  >
-                    <LinearGradient
-                      colors={goal.is_completed ? ['#FFD700', '#FFA500'] : ['rgba(255,255,255,0.95)', 'rgba(255,255,255,0.9)']}
-                      style={styles.goalGradient}
-                    >
-                      <View style={styles.goalHeader}>
-                        <View style={styles.goalTitleRow}>
+                      router.push('/goals/create');
                           <Text style={[
                             styles.goalTitle, 
                             goal.is_completed && styles.goalTitleCompleted,
