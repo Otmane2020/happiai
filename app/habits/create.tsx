@@ -111,22 +111,26 @@ export default function CreateHabitWizard() {
   };
 
   const handleSave = async () => {
-    if (!user || (!selectedSubcategory && !customTitle.trim())) {
+    if (!user) {
       Alert.alert('Error', 'Please complete all required fields');
+      return;
+    }
+
+    const habitTitle = customTitle.trim() || selectedSubcategory?.name;
+    if (!habitTitle) {
+      Alert.alert('Error', 'Please enter a habit title');
       return;
     }
 
     setLoading(true);
     try {
-      const habitTitle = customTitle.trim() || selectedSubcategory?.name || 'New Habit';
-
       const { error } = await supabase
         .from('habits')
         .insert({
           user_id: user.id,
           subcategory_id: selectedSubcategory?.id || null,
-          title: habitTitle,
-          description: `A beautiful habit to enhance your life`,
+          title: habitTitle.trim(),
+          description: selectedSubcategory?.name ? `${selectedSubcategory.name} - A beautiful habit to enhance your life` : 'A beautiful habit to enhance your life',
           frequency,
           target_count: targetCount,
           reminder_times: reminders.map(r => r.time),
@@ -136,9 +140,10 @@ export default function CreateHabitWizard() {
       if (error) throw error;
 
       Alert.alert('✨ Habit Created!', 'Your new habit is ready to transform your life!', [
-        { text: 'Perfect!', onPress: () => router.back() }
+        { text: 'Perfect!', onPress: () => router.replace('/(tabs)/habits') }
       ]);
     } catch (error: any) {
+      console.error('Error creating habit:', error);
       Alert.alert('Error', error.message || 'Failed to create habit');
     } finally {
       setLoading(false);

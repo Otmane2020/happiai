@@ -87,19 +87,24 @@ export default function CreateGoalWizard() {
   };
 
   const handleSave = async () => {
-    if (!user || !goalTitle.trim()) {
+    if (!user) {
+      Alert.alert('Error', 'Please sign in to create goals');
+      return;
+    }
+
+    if (!goalTitle.trim()) {
       Alert.alert('Error', 'Please enter a goal title');
       return;
     }
 
     const target = parseFloat(targetValue);
     if (isNaN(target) || target <= 0) {
-      Alert.alert('Error', 'Target value must be greater than 0');
+      Alert.alert('Error', 'Please enter a valid target value greater than 0');
       return;
     }
 
     if (!unit.trim()) {
-      Alert.alert('Error', 'Please specify a unit');
+      Alert.alert('Error', 'Please specify a unit (e.g., books, workouts, dollars)');
       return;
     }
 
@@ -122,9 +127,10 @@ export default function CreateGoalWizard() {
       if (error) throw error;
 
       Alert.alert('🌟 Dream Created!', 'Your beautiful goal is ready to inspire your journey!', [
-        { text: 'Amazing!', onPress: () => router.back() }
+        { text: 'Amazing!', onPress: () => router.replace('/(tabs)/goals') }
       ]);
     } catch (error: any) {
+      console.error('Error creating goal:', error);
       Alert.alert('Error', error.message || 'Failed to create goal');
     } finally {
       setLoading(false);
